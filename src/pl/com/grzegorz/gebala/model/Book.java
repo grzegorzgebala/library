@@ -1,7 +1,7 @@
 package pl.com.grzegorz.gebala.model;
 
 public class Book {
-    // Fields
+
     private String title;
     private String author;
     private int releaseDate;
@@ -9,7 +9,7 @@ public class Book {
     private String publisher;
     private String isbn;
 
-    // Constructors
+
     public Book(String title, String author, int releaseDate,
                 int pages, String publisher, String isbn) {
         this(title, author, releaseDate, pages, publisher);
@@ -24,7 +24,7 @@ public class Book {
         this.publisher = publisher;
     }
 
-    // Setters and getters
+
     public String getTitle() {
         return title;
     }
@@ -75,7 +75,10 @@ public class Book {
 
     public void printInfo() {
         String info = title + "; " + author + "; " + releaseDate + "; "
-                + pages + "; " + publisher + "; " + isbn;
+                + pages + "; " + publisher;
+        if (isbn != null) {
+            info = info + "; " + isbn;
+        }
         System.out.println(info);
     }
 }
