@@ -1,12 +1,19 @@
 package pl.com.grzegorz.gebala.io;
-
 import pl.com.grzegorz.gebala.model.Book;
-
 import java.util.Scanner;
 
 public class DataReader {
+    private Scanner sc = new Scanner(System.in);;
 
-    private Scanner sc = new Scanner(System.in);
+    public void close() {
+        sc.close();
+    }
+
+    public int getInt() {
+        int number = sc.nextInt();
+        sc.nextLine();
+        return number;
+    }
 
     public Book readAndCreateBook() {
         System.out.println("Tytuł: ");
@@ -18,15 +25,10 @@ public class DataReader {
         System.out.println("ISBN: ");
         String isbn = sc.nextLine();
         System.out.println("Rok wydania: ");
-        int releaseDate = sc.nextInt();
-        sc.nextLine();
+        int releaseDate = getInt();
         System.out.println("Ilość stron: ");
-        int pages = sc.nextInt();
-        sc.nextLine();
-        return new Book(title, author, releaseDate, pages, publisher, isbn);
-    }
+        int pages = getInt();
 
-    public void close() {
-        sc.close();
+        return new Book(title, author, releaseDate, pages, publisher, isbn);
     }
 }
