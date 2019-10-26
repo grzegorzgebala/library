@@ -2,7 +2,7 @@ package pl.com.grzegorz.gebala.model;
 
 public class Library {
 
-    private final int maxBooks= 1000;
+    private static final int maxBooks= 1000;
     private Book[] books = new Book[maxBooks];
     private int booksNumber;
 
