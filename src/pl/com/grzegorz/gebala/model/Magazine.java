@@ -37,4 +37,13 @@ public class Magazine extends Publication {
                 + month + "-" + day + "; " + language;
         System.out.println(info);
     }
+
+    @Override
+    public String toString() {
+        return "Magazine{" +
+                "month=" + month +
+                ", day=" + day +
+                ", language='" + language + '\'' +
+                '}';
+    }
 }

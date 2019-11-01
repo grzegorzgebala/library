@@ -1,5 +1,7 @@
 package pl.com.grzegorz.gebala.model;
 
+import java.util.Objects;
+
 public class Publication {
 
     private String title;
@@ -37,5 +39,29 @@ public class Publication {
     }
 
     public void printInfo() {
+    }
+
+    @Override
+    public String toString() {
+        return "Publication{" +
+                "title='" + title + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", year=" + year +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Publication)) return false;
+        Publication that = (Publication) o;
+        return getYear() == that.getYear() &&
+                Objects.equals(getTitle(), that.getTitle()) &&
+                Objects.equals(getPublisher(), that.getPublisher());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getTitle(), getPublisher(), getYear());
     }
 }
